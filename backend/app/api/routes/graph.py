@@ -3,7 +3,6 @@
 from fastapi import APIRouter
 from pydantic import BaseModel
 
-from ...db.concept import ConceptRepository
 from ...db.neo4j_client import get_client
 
 
@@ -28,9 +27,6 @@ class TreeResponse(BaseModel):
     domain: str
     roots: list[TreeNode]
     total_nodes: int
-
-
-_repo = ConceptRepository()
 
 
 @router.get("/tree/{domain}", response_model=TreeResponse)
