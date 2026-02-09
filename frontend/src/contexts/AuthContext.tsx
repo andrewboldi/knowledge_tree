@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import type { ReactNode } from 'react';
 import {
   onAuthStateChanged,
@@ -8,23 +8,8 @@ import {
 } from 'firebase/auth';
 import type { User } from 'firebase/auth';
 import { initializeFirebase, getFirebaseAuth } from '../firebase/config';
-
-interface AuthContextType {
-  user: User | null;
-  loading: boolean;
-  signInWithGoogle: () => Promise<void>;
-  logout: () => Promise<void>;
-}
-
-const AuthContext = createContext<AuthContextType | undefined>(undefined);
-
-export function useAuth(): AuthContextType {
-  const context = useContext(AuthContext);
-  if (context === undefined) {
-    throw new Error('useAuth must be used within an AuthProvider');
-  }
-  return context;
-}
+import { AuthContext } from './AuthContextDef';
+import type { AuthContextType } from './AuthContextDef';
 
 interface AuthProviderProps {
   children: ReactNode;
