@@ -5,7 +5,7 @@ from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from .api.routes import concepts, graph, mvg
+from .api.routes import concepts, graph, mvg, user_contributions
 from .db.neo4j_client import get_client
 
 
@@ -40,6 +40,7 @@ app.add_middleware(
 app.include_router(concepts.router, prefix="/api")
 app.include_router(graph.router, prefix="/api")
 app.include_router(mvg.router, prefix="/api")
+app.include_router(user_contributions.router, prefix="/api")
 
 
 @app.get("/health")

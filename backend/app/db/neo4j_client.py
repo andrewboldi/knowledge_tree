@@ -60,6 +60,13 @@ class Neo4jClient:
                FOR (c:Concept) ON (c.complexity_level)""",
             """CREATE INDEX concept_axiom_index IF NOT EXISTS
                FOR (c:Concept) ON (c.is_axiom)""",
+            # Contribution constraints and indexes
+            """CREATE CONSTRAINT contribution_id_unique IF NOT EXISTS
+               FOR (c:Contribution) REQUIRE c.id IS UNIQUE""",
+            """CREATE INDEX contribution_user_index IF NOT EXISTS
+               FOR (c:Contribution) ON (c.user_id)""",
+            """CREATE INDEX contribution_concept_index IF NOT EXISTS
+               FOR (c:Contribution) ON (c.concept_id)""",
         ]
         for query in schema_queries:
             self.execute_query(query)
