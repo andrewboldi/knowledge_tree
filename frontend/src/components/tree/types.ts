@@ -1,3 +1,5 @@
+import type * as d3 from 'd3';
+
 export interface Concept {
   id: string;
   name: string;

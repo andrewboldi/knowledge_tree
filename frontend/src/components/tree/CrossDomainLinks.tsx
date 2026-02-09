@@ -23,10 +23,10 @@ export function CrossDomainLinks({ links }: CrossDomainLinksProps) {
             <defs>
               <linearGradient
                 id={gradientId}
-                x1={source.x}
-                y1={source.y}
-                x2={target.x}
-                y2={target.y}
+                x1={source.x ?? 0}
+                y1={source.y ?? 0}
+                x2={target.x ?? 0}
+                y2={target.y ?? 0}
                 gradientUnits="userSpaceOnUse"
               >
                 <stop offset="0%" stopColor={DOMAIN_COLORS[source.domain]} />
