@@ -12,8 +12,11 @@
 __pycache__/
 *.py[cod]
 *$py.class
+*.so
+.Python
 .venv/
 venv/
+ENV/
 .pytest_cache/
 
 # Node
@@ -28,3 +31,8 @@ firebase-debug.log
 .idea/
 .vscode/
 *.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db

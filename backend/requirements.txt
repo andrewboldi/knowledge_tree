@@ -7,3 +7,6 @@ firebase-admin>=6.4.0
 
 # Data validation
 pydantic>=2.5.0
+
+# Database
+neo4j>=5.15.0
